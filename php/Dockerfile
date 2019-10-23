@@ -1,5 +1,5 @@
 ARG PHP_VERSION=""
-FROM php:${PHP_VERSION:+${PHP_VERSION}-}fpm-alpine
+FROM sdufjf/php
 
 RUN apk update; \
     apk upgrade;
