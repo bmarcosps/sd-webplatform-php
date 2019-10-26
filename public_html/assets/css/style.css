@@ -26,16 +26,19 @@ body {
 	background-color: #fff;
 	height: 100%;
 	display: flex;
+	flex: 1.2;
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	padding-left: 80px;
+	padding-left: 50px;
+	padding-right: 10px;
 	box-shadow: 5px 0 8px rgba(0, 0, 0, 0.16);
 	background-color: rgb(218, 218, 218);
 }
 
 .login-form {
 	display: flex;
+	flex: 2;
 	justify-content: center;
 	height: 100%;
 }
@@ -67,7 +70,12 @@ body {
 		flex-direction: column;
 	}
 
+	.login-form {
+		flex: 2;
+	}
+
 	.login-info {
+		flex: 1;
 		max-width: 100%;
 		height: auto;
 		padding: 15px;
@@ -77,5 +85,35 @@ body {
 /* LOGIN PAGE - END*/
 
 /*SIDEBAR - START*/
+#sidebar-wrapper {
+	min-height: 100vh;
+	margin-left: -15rem;
+	-webkit-transition: margin 0.25s ease-out;
+	-moz-transition: margin 0.25s ease-out;
+	-o-transition: margin 0.25s ease-out;
+	transition: margin 0.25s ease-out;
+}
 
+#sidebar-wrapper .list-group {
+	width: 15rem;
+}
+
+#sidebar-wrapper .sidebar-heading {
+	padding: 0.875rem 1.25rem;
+	font-size: 1.2rem;
+}
+
+#sidebar-wrapper.toggled {
+	margin-left: 0;
+}
 /*SIDEBAR - END*/
+
+/**/
+#content-container {
+	min-width: 100vw;
+}
+
+#container {
+	display: flex;
+}
+/**/

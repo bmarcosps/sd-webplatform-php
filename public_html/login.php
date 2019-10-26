@@ -9,15 +9,15 @@
 </head>
 
 <body>
-    <div class="login-container row">
+    <div class="login-container">
 
-        <div class="login-info col-5">
+        <div class="login-info">
             <h1>Bem vindo!</h1>
             <p>Este site foi desenvolvido para a disciplina de Sistemas Distribuídos 2019/3 como parte de um trabalho
                 que visa automatizar elementos da sala de aula.</p>
             <p>Faça login com seu CPF e a senha do SIGA.</p>
         </div>
-        <div class="login-form col">
+        <div class="login-form">
             <form>
                 <h2>Login</h2>
                 <div class="form-group">
@@ -29,7 +29,7 @@
                     <label for="inputPassword">Senha</label>
                     <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
                 </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="w-100 btn btn-primary">Entrar</button>
             </form>
         </div>
         <img src="assets\img\logo-ufjf-1.png" alt="Logo UFJF" id="logo-ufjf-login">
