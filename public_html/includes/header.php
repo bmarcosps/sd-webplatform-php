@@ -6,3 +6,5 @@
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 <!-- GOOGLE FONT -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<!-- CUSTOM STYLE -->
+<link href="assets/css/style.css" rel="stylesheet" />
