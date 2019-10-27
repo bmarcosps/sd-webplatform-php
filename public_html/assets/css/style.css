@@ -9,6 +9,7 @@ body {
 * {
 	margin: 0;
 	padding: 0;
+	font-family: "Open Sans";
 }
 
 /* LOGIN PAGE - START*/
@@ -108,12 +109,18 @@ body {
 }
 /*SIDEBAR - END*/
 
-/**/
-#content-container {
-	min-width: 100vw;
-}
-
+/*MAIN CONTAINERS - START*/
 #container {
 	display: flex;
 }
-/**/
+
+#content-container {
+	min-width: 100vw;
+	padding: 10px 30px;
+}
+
+.attendance {
+	max-width: 500px;
+}
+
+/*MAIN CONTAINERS - END*/
