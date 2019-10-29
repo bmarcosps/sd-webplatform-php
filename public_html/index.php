@@ -26,6 +26,30 @@ $param = '10%';
                     </div>
                 </div>
             </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Dispositivo</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Lâmpada 1</td>
+                        <td>Desligada</td>
+                        <td><button class="btn btn-info">Toggle</button></td>
+                    </tr>
+                    <tr>
+                        <td>Projetor</td>
+                        <td>Ligado</td>
+                        <td><button class="btn btn-info" disabled>Toggle</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
         </div>
 
     </div>

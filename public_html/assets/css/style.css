@@ -115,7 +115,8 @@ body {
 }
 
 #content-container {
-	min-width: 100vw;
+	/*min-width: 100vw;*/
+	width: 100%;
 	padding: 10px 30px;
 }
 
