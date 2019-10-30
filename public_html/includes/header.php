@@ -8,3 +8,5 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <!-- CUSTOM STYLE -->
 <link href="assets/css/style.css" rel="stylesheet" />
+
+<title><?php echo $pageTitle ?></title>

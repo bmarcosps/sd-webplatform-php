@@ -66,7 +66,7 @@ body {
 }
 
 /* Mobile */
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
 	.login-container {
 		flex-direction: column;
 	}
@@ -89,6 +89,7 @@ body {
 #sidebar-wrapper {
 	min-height: 100vh;
 	margin-left: -15rem;
+	position: fixed;
 	-webkit-transition: margin 0.25s ease-out;
 	-moz-transition: margin 0.25s ease-out;
 	-o-transition: margin 0.25s ease-out;
@@ -112,6 +113,7 @@ body {
 /*MAIN CONTAINERS - START*/
 #container {
 	display: flex;
+	margin-top: 57px;
 }
 
 #content-container {
@@ -121,7 +123,12 @@ body {
 }
 
 .attendance {
-	max-width: 500px;
+	max-width: 100%;
+	padding-bottom: 10px;
+}
+
+.attendance p {
+	margin: 0;
 }
 
 /*MAIN CONTAINERS - END*/

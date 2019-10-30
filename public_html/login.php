@@ -1,5 +1,5 @@
 <?php
-
+$pageTitle = "Plataforma Salas Inteligentes";
 ?>
 
 <!DOCTYPE html>

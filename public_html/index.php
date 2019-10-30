@@ -1,5 +1,6 @@
 <?php
 include('includes/config.php');
+$pageTitle = "Início";
 $param = '10%';
 ?>
 
@@ -14,11 +15,11 @@ $param = '10%';
     <div id="container">
         <?php include('includes/sidebar.php');?>
         <div id="content-container">
-            <h1>Você está online!</h1>
+            <h4>Você está conectado!</h4>
             <p>Sala: 1234</p>
             <p>Disciplina: DCC123</p>
             <div class="attendance">
-                <h3></h3>
+                <p>Presença</p>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                         style="width: <?php echo $param;?>">
@@ -28,7 +29,7 @@ $param = '10%';
             </div>
 
             <table class="table">
-                <thead>
+                <thead class="thead-light">
                     <tr>
                         <th>Dispositivo</th>
                         <th>Status</th>
