@@ -7,6 +7,7 @@ $(document).ready(function() {
 	$(".phone_with_ddd").mask("(00) 0000-0000");
 	$(".cpf").mask("000.000.000-00", { reverse: true });
 	$(".money").mask("000.000.000.000.000,00", { reverse: true });
+	$(".mac_address").mask("AA:AA:AA:AA:AA:AA");
 });
 
 $("#menu-toggle").click(function(e) {

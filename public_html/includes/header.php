@@ -4,6 +4,8 @@
 <meta name="author" content="" />
 <!-- BOOTSTRAP CORE STYLE  -->
 <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet" />
+
 <!-- GOOGLE FONT -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <!-- CUSTOM STYLE -->

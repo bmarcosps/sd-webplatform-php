@@ -44,7 +44,7 @@ $pageTitle = "Seus Dispositivos";
                     </tbody>
                 </table>
             </div>
-            <button class="btn btn-primary">Novo dispositivo</button>
+            <a href="newDevice.php"><button class="btn btn-primary">Novo dispositivo</button></a>
 
         </div>
     </div>

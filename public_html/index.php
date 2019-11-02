@@ -1,7 +1,7 @@
 <?php
 include('includes/config.php');
 $pageTitle = "Início";
-$param = '10%';
+$param = '50%';
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +41,14 @@ $param = '10%';
                     <tr>
                         <td>Lâmpada 1</td>
                         <td>Desligada</td>
-                        <td><button class="btn btn-info">Toggle</button></td>
+                        <td><input type="checkbox" checked data-toggle="toggle" data-onstyle="success"
+                                data-offstyle="danger"></td>
                     </tr>
                     <tr>
                         <td>Projetor</td>
                         <td>Ligado</td>
-                        <td><button class="btn btn-info" disabled>Toggle</button></td>
+                        <td><input type="checkbox" disabled checked data-toggle="toggle" data-onstyle="success"
+                                data-offstyle="danger"></td>
                     </tr>
                 </tbody>
 

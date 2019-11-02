@@ -132,3 +132,9 @@ body {
 }
 
 /*MAIN CONTAINERS - END*/
+
+/* NAVBAR -START */
+
+.avatar-image {
+	height: 90%;
+}
