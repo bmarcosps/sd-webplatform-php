@@ -10,54 +10,82 @@ $param = '50%';
     <?php include('includes/header.php');?>
 </head>
 
-<body>
+<body onload="updateClock(); setInterval('updateClock()', 1000 )">
     <?php include('includes/navbar.php');?>
     <div id="container">
         <?php include('includes/sidebar.php');?>
         <div id="content-container">
-            <h4>Você está conectado!</h4>
-            <p>Sala: 1234</p>
-            <p>Disciplina: DCC123</p>
-            <div class="attendance">
-                <p>Presença</p>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                        style="width: <?php echo $param;?>">
-                        <?php echo $param;?>
+            <div class="main-header">
+                <div class="row">
+                    <div class="col">
+                        <div class="attendance">
+                            <p>
+                                <span class="badge badge-success">Online</span> Presença </p>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    style="width: <?php echo $param;?>">
+                                    <?php echo $param;?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Dispositivo</th>
+                                    <th>Status</th>
+                                    <th>Ação</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Lâmpada 1</td>
+                                    <td>Desligada</td>
+                                    <td><input type="checkbox" checked data-toggle="toggle" data-onstyle="success"
+                                            data-offstyle="danger"></td>
+                                </tr>
+                                <tr>
+                                    <td>Projetor</td>
+                                    <td>Ligado</td>
+                                    <td><input type="checkbox" disabled checked data-toggle="toggle"
+                                            data-onstyle="success" data-offstyle="danger"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Dispositivo</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header"><i class="material-icons">info</i></div>
+                        <div class="card-body">
 
-                <tbody>
-                    <tr>
-                        <td>Lâmpada 1</td>
-                        <td>Desligada</td>
-                        <td><input type="checkbox" checked data-toggle="toggle" data-onstyle="success"
-                                data-offstyle="danger"></td>
-                    </tr>
-                    <tr>
-                        <td>Projetor</td>
-                        <td>Ligado</td>
-                        <td><input type="checkbox" disabled checked data-toggle="toggle" data-onstyle="success"
-                                data-offstyle="danger"></td>
-                    </tr>
-                </tbody>
+                            <h5 class="card-title">Sala</h5>
+                            <p class="card-text">1234</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header"><i class="material-icons">info</i></div>
+                        <div class="card-body">
 
-            </table>
+                            <h5 class="card-title">Disciplina</h5>
+                            <p class="card-text">DCC1234</p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span id="clock">&nbsp;</span>
         </div>
 
-    </div>
-
-    <?php include('includes/footer.php');?>
+        <?php include('includes/footer.php');?>
 </body>
 
 </html>

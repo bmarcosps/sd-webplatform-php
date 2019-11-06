@@ -8,6 +8,7 @@
 
 <!-- GOOGLE FONT -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- CUSTOM STYLE -->
 <link href="assets/css/style.css" rel="stylesheet" />
 
