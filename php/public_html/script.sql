@@ -123,3 +123,33 @@ ALTER TABLE sd.histPorta
     ADD FOREIGN KEY (disciplina,turma) REFERENCES sd.turma(disciplina,turma);
 ALTER TABLE sd.histComputador
     ADD FOREIGN KEY (disciplina,turma) REFERENCES sd.turma(disciplina,turma);
+
+
+CREATE TABLE sd.usuarioIntegra(
+	cpf VARCHAR(11),
+	password varchar(50),
+	tipo INTEGER,
+	nome VARCHAR(50),
+	UNIQUE(cpf)
+);
+
+ALTER TABLE sd.usuarioIntegra
+    ADD CONSTRAINT pk_usuario_integra PRIMARY KEY (cpf);
+    
+INSERT INTO sd.usuarioIntegra (cpf, password, tipo, nome)
+VALUES ("123", "123", 1, "Bruno");
+
+INSERT INTO sd.usuarioIntegra (cpf, password, tipo, nome)
+VALUES ("1234", "1234", 2, "Vini");
+
+INSERT INTO sd.usuarioIntegra (cpf, password, tipo, nome)
+VALUES ("12345", "12345", 1, "AlunoTeste");
+
+INSERT INTO sd.usuarioIntegra (cpf, password, tipo, nome)
+VALUES ("123456", "123456", 2, "ProfessorTeste");
+
+INSERT INTO sd.sala (instituto, numero, qtdComputadores, qtdVentiladores, qtdLampadas, qtdProjetor)
+VALUES("ICE", "3504", 1, 0, 2, 1);
+
+INSERT INTO sd.turma(disciplina, turma, instituto, numeroSala)
+VALUES("DCC064", "A", "ICE", "3504");
