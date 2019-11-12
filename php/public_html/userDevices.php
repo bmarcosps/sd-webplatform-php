@@ -1,5 +1,13 @@
 <?php
+include('includes/config.php');
+
 $pageTitle = "Seus Dispositivos";
+
+if(!isset($_SESSION['user']))
+{
+    header('location:login.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,30 +29,24 @@ $pageTitle = "Seus Dispositivos";
                         <tr>
                             <th>Dispositivo</th>
                             <th>MAC</th>
-                            <th>Status</th>
                             <th colspan="2">Ações</th>
                         </tr>
                     </thead>
 
                     <tbody>
+
                         <tr>
-                            <td>iPhone</td>
-                            <td>AB:CD:EF:GH</td>
-                            <td>Conectado</td>
+                            <td>1</td>
+                            <td><?php echo $_SESSION['user']['macBluetooth'] ?></td>
                             <td><button class="btn btn-primary">Editar</button></td>
-                            <td><button class="btn btn-outline-danger" disabled>Remover</button></td>
-                        </tr>
-                        <tr>
-                            <td>Computador</td>
-                            <td>AB:CD:EF:GH</td>
-                            <td>Desconectado</td>
-                            <td><button class="btn btn-primary">Editar</button></td>
-                            <td><button class="btn btn-outline-danger">Remover</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <a href="newDevice.php"><button class="btn btn-primary">Novo dispositivo</button></a>
+                            <!-- <td><button class="btn btn-outline-danger" disabled>Remover</button></td> -->
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+             <!--
+             <a href="newDevice.php"><button class="btn btn-primary">Novo dispositivo</button></a>
+             -->
 
         </div>
     </div>

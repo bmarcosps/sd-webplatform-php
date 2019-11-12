@@ -1,7 +1,16 @@
+<?php
+if($_SESSION['userIntegra']['tipo'] == 1){
+    $indexPage = "index.php";
+}else{
+    $indexPage = "indexProfessor.php";
+}
+
+?>
+
 <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Sala Inteligente</div>
     <ul class="list-group list-group-flush">
-        <li><a class="list-group-item list-group-item-action bg-light" href="index.php">
+        <li><a class="list-group-item list-group-item-action bg-light" href=<?php echo $indexPage ?>>
                 <i class="material-icons">home</i>Início</a></li>
         <li><a class="list-group-item list-group-item-action bg-light" href="#">
                 <i class="material-icons">dashboard</i>Dashboard</a></li>
@@ -9,5 +18,7 @@
                 <i class="material-icons">meeting_room</i>Salas</a></li>
         <li><a class="list-group-item list-group-item-action bg-light" href="userDevices.php">
                 <i class="material-icons">phonelink</i>Seus dispositivos</a></li>
+        <li><a class="list-group-item list-group-item-action bg-light text-danger" href="index.php?logout='1'">
+                <i class="material-icons">exit_to_app</i>Sair</a></li>
     </ul>
 </div>

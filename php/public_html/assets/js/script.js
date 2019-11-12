@@ -29,3 +29,9 @@ function updateClock() {
 
 	document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 }
+
+function loginError(){
+	var errorDiv = document.querySelector("#login-error");
+	errorDiv.classList.add("alert alert-warning");
+	errorDiv.textContent("Credenciais Inválidas!");
+}

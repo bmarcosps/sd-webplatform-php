@@ -1,7 +1,21 @@
 <?php
-//include('includes/config.php');
+include('includes/config.php');
 $pageTitle = "Início";
 $param = '50%';
+
+if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['tipo'] != 1)
+{
+    header('location:login.php');
+}
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    unset($_SESSION['user']);
+    unset($_SESSION['userIntegra']);
+    header("location: login.php");
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,32 +42,6 @@ $param = '50%';
                                 </div>
                             </div>
                         </div>
-
-                        <table class="table">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th>Dispositivo</th>
-                                    <th>Status</th>
-                                    <th>Ação</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Lâmpada 1</td>
-                                    <td>Desligada</td>
-                                    <td><input type="checkbox" checked data-toggle="toggle" data-onstyle="success"
-                                            data-offstyle="danger"></td>
-                                </tr>
-                                <tr>
-                                    <td>Projetor</td>
-                                    <td>Ligado</td>
-                                    <td><input type="checkbox" disabled checked data-toggle="toggle"
-                                            data-onstyle="success" data-offstyle="danger"></td>
-                                </tr>
-                            </tbody>
-
-                        </table>
                     </div>
                 </div>
             </div>

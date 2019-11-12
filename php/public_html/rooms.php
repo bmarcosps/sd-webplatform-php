@@ -1,4 +1,5 @@
 <?php
+include('includes/config.php');
 $pageTitle = "Salas";
 ?>
 
@@ -22,7 +23,6 @@ $pageTitle = "Salas";
                             <th>Sala</th>
                             <th>Disciplina</th>
                             <th>Situação</th>
-                            <th colspan="1">Ações</th>
                         </tr>
                     </thead>
 
@@ -31,13 +31,11 @@ $pageTitle = "Salas";
                             <td>3306</td>
                             <td>DCC123</td>
                             <td><span class="badge badge-danger">Ocupada</span></td>
-                            <td><button class="btn btn-primary">Ver</button></td>
                         </tr>
                         <tr>
                             <td>LAB123</td>
                             <td>DCC321</td>
                             <td><span class="badge badge-success">Livre</span></td>
-                            <td><button class="btn btn-primary">Ver</button></td>
                         </tr>
                     </tbody>
                 </table>
