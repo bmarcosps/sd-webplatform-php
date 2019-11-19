@@ -1,5 +1,9 @@
 <?php
-include('includes/config.php');
+try{
+    include('includes/config.php'); 
+} catch(PDOException $e) {
+    exit("Error: " . $e->getMessage());
+}
 $pageTitle = "Início";
 $param = '50%';
 

@@ -14,7 +14,7 @@
     }
     catch (PDOException $e)
     {
-        exit("Error: " . $e->getMessage());
+        header('Location: 404.php');
     }
 
 
