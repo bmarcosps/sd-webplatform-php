@@ -12,7 +12,7 @@
     define('DB_PORT2','5432');
     define('DB_USER2','postgres');
     define('DB_PASS2','sd2019-03');
-    define('DB_NAME2','postgres');
+    define('DB_NAME2','sd2019');
     // Establish database connection.
     //$host = '10.5.16.109';
     //$db  = 'postgres';
@@ -28,10 +28,20 @@
         //$conn2 = new PDO($dsn);
         $conn2 = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
 
-        $stmt2 = $conn2->prepare('INSERT INTO sd.usuario (cpf, macBluetooth) VALUES ("123", "123")');
-
+        if($conn2){
+            echo "<h1> Conectou </h1>";
+        } else {
+            echo "<h1> Não Conectou </h1>";
+        }
+        //$stmt2 = $conn2->prepare('INSERT INTO sd.usuario (cpf, macBluetooth) VALUES ("134534523", "123453453")');
+        
+        $stmt2 = $conn2->prepare('SELECT * FROM sd.usuario');
         if($stmt2->execute()) {
-            echo "Insert";
+            echo "<h1> Funcionou a Query </h1>";
+            echo $stmt2->rowCount();
+        } else {
+            echo $stmt2->rowCount();
+            echo "<h1> Não funcionou a Query </h1>";
         }
 
 
@@ -48,7 +58,7 @@
     {
         echo $e->getTrace();
         echo $e->getMessage();
-        //1header('Location: 404.php');
+       // header('Location: 404.php');
     }
 
 
