@@ -120,6 +120,10 @@ body {
 
 /*MAIN CONTAINERS - END*/
 
+.clickable{
+	cursor: pointer;
+}
+
 /* DEVICE FORMS - START */
 .device-form {
 	width: 70%;

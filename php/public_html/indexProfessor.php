@@ -47,7 +47,7 @@ if (isset($_GET['logout'])) {
                             <td>DCC064</td>
                             <td>A</td>
                             <td>32</td>
-                            <td><button class="btn btn-primary">Ver presença</button></td>
+                            <td><a href="subject.php?disciplina=DCC064&turma=A" class="btn btn-primary">Ver presença</a></td>
                         </tr>
 
                         <tr>
