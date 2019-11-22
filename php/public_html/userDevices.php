@@ -16,8 +16,6 @@ if($query->execute()) {
     $userData = $query->fetch(PDO::FETCH_ASSOC);
 }
 
-
-
 ?>
 
 <!DOCTYPE html>

@@ -10,6 +10,7 @@ $(document).ready(function() {
 	$(".mac_address").mask("AA:AA:AA:AA:AA:AA");
 });
 
+
 $("#menu-toggle").click(function(e) {
 	e.preventDefault();
 	$("#sidebar-wrapper").toggleClass("toggled");

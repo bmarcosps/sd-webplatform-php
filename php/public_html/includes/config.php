@@ -3,6 +3,7 @@
 
     // DB credentials.
     define('DB_HOST','localhost');
+    define('DB_PORT','3308');
     define('DB_USER','root');
     define('DB_PASS','');
     define('DB_NAME','sd');
@@ -20,14 +21,12 @@
     //$password = 'sd2019-03';
     try
     {
-        //$conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-        //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $conn2 = new PDO("mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME,DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+        $conn2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        //$dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$username;password=$password";
-        //$conn2 = new PDO($dsn);
         $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
-
+        /*
         if($conn){
             echo "<h1> Conectou </h1>";
         } else {
@@ -43,18 +42,25 @@
             echo $stmt2->rowCount();
             echo "<h1> Não funcionou a Query </h1>";
         }
+        */
 
         //$conn = new PDO("pgsql:host=".$host.";dbname=".$db,$username, $password);
 
-
+        $errorMessage = "";
     }
     catch (PDOException $e)
     {
-        echo $e->getTrace();
-        echo $e->getMessage();
+        $errorMessage = setErrorMessage($e->getMessage());
        // header('Location: 404.php');
     }
 
-
+    function setErrorMessage($message){
+        return "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
+                    $message 
+                    <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+                        <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                </div>";
+    }
 ?>
 
