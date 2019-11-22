@@ -9,7 +9,7 @@ if(isset($_POST['login'])) {
 
         /*Simulando usuario do integra*/
         $sql = "SELECT * FROM sd.usuarioIntegra WHERE cpf=:cpf AND password=:password";
-        $query = $conn2->prepare($sql);
+        $query = $conn->prepare($sql);
         $query->bindParam(':cpf', $cpf, PDO::PARAM_STR);
         $query->bindParam(':password', $password, PDO::PARAM_STR);
         $query->execute();
@@ -61,7 +61,6 @@ if(isset($_SESSION['user']))
 </head>
 
 <body>
-    <span class="error-alert"><?php echo $errorMessage;?></span>
     <div class="login-container">
 
         <div class="login-info">

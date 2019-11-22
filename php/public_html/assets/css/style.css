@@ -121,10 +121,10 @@ body {
 
 .error-alert {
 	position: absolute;
-	bottom: 0;
-	z-index: 1;
+	top: 50%;
+	z-index: 99;
 	max-width: 80%;
-	left: 10%;
+	right: 10%;
 }
 
 .clickable{

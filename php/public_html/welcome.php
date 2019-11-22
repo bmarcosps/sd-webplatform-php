@@ -9,31 +9,35 @@ if(!isset($_SESSION['userIntegra']))
 }
 
 if(isset($_POST['registrarDispositivo'])) {
-    if (empty($_POST['deviceMac'])) {
-        $macErr = "Preencha o campo Endereço MAC";
-    } else {
-        if (!preg_match("/([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])/", $_POST['deviceMac'] )){
-            $macErr = "Endereço MAC inválido!";
+    try {
+        if (empty($_POST['deviceMac'])) {
+            $macErr = "Preencha o campo Endereço MAC";
         } else {
-            $mac = preg_replace("/[:]/", '', $_POST['deviceMac']);
-
-            $sql = "INSERT INTO sd.usuario (cpf, macBluetooth) VALUES (:cpf, :macBluetooth)";
-            $query = $conn->prepare($sql);
-            $query->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
-            $query->bindParam(':macBluetooth', $mac, PDO::PARAM_STR);
-            $query->execute();
-
-            $sql2 = "SELECT * FROM sd.usuario WHERE cpf=:cpf";
-            $query2 = $conn->prepare($sql2);
-            $query2->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
-            $query2->execute();
-            $_SESSION['user'] = $query2->fetch(PDO::FETCH_ASSOC);
-            if ($_SESSION['userIntegra']['tipo'] == 1) {
-                header('location:index.php');
+            if (!preg_match("/([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])/", $_POST['deviceMac'])) {
+                $macErr = "Endereço MAC inválido!";
             } else {
-                header('location:indexProfessor.php');
+                $mac = preg_replace("/[:]/", '', $_POST['deviceMac']);
+
+                $sql = "INSERT INTO sd.usuario (cpf, macBluetooth) VALUES (:cpf, :macBluetooth)";
+                $query = $conn->prepare($sql);
+                $query->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
+                $query->bindParam(':macBluetooth', $mac, PDO::PARAM_STR);
+                $query->execute();
+
+                $sql2 = "SELECT * FROM sd.usuario WHERE cpf=:cpf";
+                $query2 = $conn->prepare($sql2);
+                $query2->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
+                $query2->execute();
+                $_SESSION['user'] = $query2->fetch(PDO::FETCH_ASSOC);
+                if ($_SESSION['userIntegra']['tipo'] == 1) {
+                    header('location:index.php');
+                } else {
+                    header('location:indexProfessor.php');
+                }
             }
         }
+    } catch(Exception $e) {
+        $errorMessage = setErrorMessage($e->getMessage());
     }
 }
 ?>

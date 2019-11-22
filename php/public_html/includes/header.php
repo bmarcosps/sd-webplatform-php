@@ -13,3 +13,5 @@
 <link href="assets/css/style.css" rel="stylesheet" />
 
 <title><?php echo $pageTitle ?></title>
+
+<span class="error-alert"><?php echo $errorMessage;?></span>
