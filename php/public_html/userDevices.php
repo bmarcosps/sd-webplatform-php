@@ -7,6 +7,16 @@ if(!isset($_SESSION['user']))
 {
     header('location:login.php');
 }
+$cpf = $_SESSION['user']['cpf'];
+$sql = "SELECT * FROM sd.usuario WHERE cpf=:cpf";
+$query = $conn->prepare($sql);
+$query->bindParam(':cpf', $cpf, PDO::PARAM_STR);
+
+if($query->execute()) {
+    $userData = $query->fetch(PDO::FETCH_ASSOC);
+}
+
+
 
 ?>
 
@@ -34,10 +44,9 @@ if(!isset($_SESSION['user']))
                     </thead>
 
                     <tbody>
-
                         <tr>
                             <td>1</td>
-                            <td><?php echo $_SESSION['user']['macBluetooth'] ?></td>
+                            <td><?php echo $userData['macbluetooth'] ?></td>
                             <td><button class="btn btn-primary">Editar</button></td>
                             <!-- <td><button class="btn btn-outline-danger" disabled>Remover</button></td> -->
                          </tr>

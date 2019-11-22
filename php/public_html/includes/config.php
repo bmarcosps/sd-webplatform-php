@@ -26,28 +26,22 @@
 
         //$dsn = "pgsql:host=$host;port=5432;dbname=$db;user=$username;password=$password";
         //$conn2 = new PDO($dsn);
-        $conn2 = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
+        $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
 
-        if($conn2){
+        if($conn){
             echo "<h1> Conectou </h1>";
         } else {
             echo "<h1> Não Conectou </h1>";
         }
         //$stmt2 = $conn2->prepare('INSERT INTO sd.usuario (cpf, macBluetooth) VALUES ("134534523", "123453453")');
         
-        $stmt2 = $conn2->prepare('SELECT * FROM sd.usuario');
+        $stmt2 = $conn->prepare('SELECT * FROM sd.usuarioIntegra');
         if($stmt2->execute()) {
             echo "<h1> Funcionou a Query </h1>";
             echo $stmt2->rowCount();
         } else {
             echo $stmt2->rowCount();
             echo "<h1> Não funcionou a Query </h1>";
-        }
-
-
-        $stmt = $conn2->prepare('SELECT * FROM sd.usuario');
-        if($stmt->execute()) {
-            echo "Select";
         }
 
         //$conn = new PDO("pgsql:host=".$host.";dbname=".$db,$username, $password);
