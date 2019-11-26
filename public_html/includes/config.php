@@ -20,6 +20,11 @@
     //$username = 'postgres';
     //$password = 'sd2019-03';
 $response = "";
+$retries = 3;
+$errorMessage = "";
+global $conn;
+while ($retries > 0)
+{
     try
     {
         //$conn2 = new PDO("mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME,DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
@@ -27,6 +32,8 @@ $response = "";
 
 
         $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
+        $retries = 0;
+        $errorMessage = "";
         /*
         if($conn){
             echo "<h1> Conectou </h1>";
@@ -48,14 +55,18 @@ $response = "";
 
         //$conn = new PDO("pgsql:host=".$host.";dbname=".$db,$username, $password);
 
-        $errorMessage = "";
+
 
     }
     catch (PDOException $e)
     {
         $errorMessage = setErrorMessage($e->getMessage());
+        //echo "Something went wrong, retrying...";
+        $retries--;
+        usleep(2000);
        // header('Location: 404.php');
     }
+}
 
     function setErrorMessage($message){
         return "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">
@@ -66,8 +77,13 @@ $response = "";
                 </div>";
     }
 
-    function refreshConnection($conn){
+    function refreshConnection(){
+        $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
 
+        while($conn == null) {
+            $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
+        }
+        return $conn;
     }
 ?>
 

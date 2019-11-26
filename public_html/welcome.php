@@ -3,6 +3,7 @@ include('includes/config.php');
 $pageTitle = "Bem-Vindo!";
 $macErr = "";
 $mac = "";
+
 if(!isset($_SESSION['userIntegra']))
 {
     header('location:login.php');
