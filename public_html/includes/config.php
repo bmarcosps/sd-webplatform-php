@@ -19,6 +19,7 @@
     //$db  = 'postgres';
     //$username = 'postgres';
     //$password = 'sd2019-03';
+$response = "";
     try
     {
         //$conn2 = new PDO("mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME,DB_USER, DB_PASS, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
@@ -32,8 +33,9 @@
         } else {
             echo "<h1> Não Conectou </h1>";
         }
+
         //$stmt2 = $conn2->prepare('INSERT INTO sd.usuario (cpf, macBluetooth) VALUES ("134534523", "123453453")');
-        
+
         $stmt2 = $conn->prepare('SELECT * FROM sd.usuarioIntegra');
         if($stmt2->execute()) {
             echo "<h1> Funcionou a Query </h1>";
@@ -47,6 +49,7 @@
         //$conn = new PDO("pgsql:host=".$host.";dbname=".$db,$username, $password);
 
         $errorMessage = "";
+
     }
     catch (PDOException $e)
     {
@@ -61,6 +64,10 @@
                         <span aria-hidden=\"true\">&times;</span>
                     </button>
                 </div>";
+    }
+
+    function refreshConnection($conn){
+
     }
 ?>
 

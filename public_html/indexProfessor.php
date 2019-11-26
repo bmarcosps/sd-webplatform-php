@@ -3,7 +3,7 @@ include('includes/config.php');
 $pageTitle = "Início";
 $param = '50%';
 
-if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['tipo'] != 2)
+if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
     header('location:login.php');
 }

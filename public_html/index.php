@@ -7,7 +7,7 @@ try{
 $pageTitle = "Início";
 $param = '50%';
 
-if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['tipo'] != 1)
+if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != false)
 {
     header('location:login.php');
 }

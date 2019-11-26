@@ -1,7 +1,7 @@
 <?php
 include('includes/config.php');
 
-if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['tipo'] != 2)
+if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
     header('location:login.php');
 }

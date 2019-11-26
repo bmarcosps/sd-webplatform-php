@@ -29,7 +29,8 @@ if(isset($_POST['registrarDispositivo'])) {
                 $query2->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
                 $query2->execute();
                 $_SESSION['user'] = $query2->fetch(PDO::FETCH_ASSOC);
-                if ($_SESSION['userIntegra']['tipo'] == 1) {
+
+                if ($_SESSION['userIntegra']['professor'] == false) {
                     header('location:index.php');
                 } else {
                     header('location:indexProfessor.php');
@@ -51,7 +52,7 @@ if(isset($_POST['registrarDispositivo'])) {
 <body>
 <div id="container">
     <div id="content-container">
-        <h2>Bem vindo!</h2>
+        <h2>Bem vindo, <?php echo $_SESSION['userIntegra']['nome'];?>!</h2>
         <p>Como esta é a primeira vez que você se conecta, precisamos que você registre seu dispositivo no sistema.</p>
 
         <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

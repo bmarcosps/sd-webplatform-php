@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['userIntegra']['tipo'] == 1){
+if($_SESSION['userIntegra']['professor'] == false){
     $indexPage = "index.php";
 }else{
     $indexPage = "indexProfessor.php";
