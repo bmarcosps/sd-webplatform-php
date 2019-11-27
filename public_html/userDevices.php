@@ -45,7 +45,7 @@ if($query->execute()) {
                         <tr>
                             <td>1</td>
                             <td class="mac_address"><?php echo $userData['macbluetooth'] ?></td>
-                            <td><button class="btn btn-primary">Editar</button></td>
+                            <td><a href="editDevice.php" class="btn btn-primary">Editar</a></td>
                             <!-- <td><button class="btn btn-outline-danger" disabled>Remover</button></td> -->
                          </tr>
                      </tbody>
