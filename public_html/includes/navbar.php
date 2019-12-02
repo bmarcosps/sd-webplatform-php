@@ -1,5 +1,5 @@
 <?php
-$nomeAluno = $_SESSION['userIntegra']['nome']
+$nomeAluno = strtok($_SESSION['userIntegra']['nome'],' ');
 ?>
 
 <nav class="navbar navbar-light bg-light border-bottom fixed-top">

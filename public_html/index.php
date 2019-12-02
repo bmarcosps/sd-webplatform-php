@@ -7,8 +7,9 @@ try{
 $pageTitle = "Início";
 $param = '50%';
 
-if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != false)
+if(!isset($_SESSION['user'])  || !isset($_SESSION['userIntegra'])|| $_SESSION['userIntegra']['professor'] != false)
 {
+    session_destroy();
     header('location:login.php');
 }
 

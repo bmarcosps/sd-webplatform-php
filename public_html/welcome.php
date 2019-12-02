@@ -2,6 +2,7 @@
 include('includes/config.php');
 $pageTitle = "Bem-Vindo!";
 $macErr = "";
+$nameErr= "";
 $mac = "";
 
 if(!isset($_SESSION['userIntegra']))
@@ -13,10 +14,13 @@ if(isset($_POST['registrarDispositivo'])) {
     try {
         if (empty($_POST['deviceMac'])) {
             $macErr = "Preencha o campo Endereço MAC";
+        } else if (empty($_POST['deviceName'])){
+            $macErr = "Preencha o campo Nome";
         } else {
             if (!preg_match("/([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])/", $_POST['deviceMac'])) {
                 $macErr = "Endereço MAC inválido!";
             } else {
+                $nome = $_POST['deviceName'];
                 $mac = preg_replace("/[:]/", '', $_POST['deviceMac']);
 
                 $sql = "INSERT INTO sd.usuario (cpf, macBluetooth) VALUES (:cpf, :macBluetooth)";
@@ -60,6 +64,8 @@ if(isset($_POST['registrarDispositivo'])) {
             <div class="form-group">
                 <label for="deviceName">Nome do dispositivo</label>
                 <input type="text" name="deviceName" class="form-control" id="deviceName" placeholder="Nome">
+                <span class="error text-danger"><?php echo $nameErr;?></span>
+
             </div>
             <div class="form-group">
                 <label for="deviceMac">Endereço MAC Bluetooth</label>

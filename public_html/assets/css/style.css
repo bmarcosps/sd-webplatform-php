@@ -139,13 +139,26 @@ body {
 
 /* CLOCK - START */
 #clock {
+
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	position: fixed;
 	padding: 20px;
-	bottom: 0;
+	bottom: ;
 	right: 0;
 	font-size: 50px;
+/*
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	position: fixed;
+	padding: 20px;
+	bottom: 50%;
+	right: 50%;
+	font-size: 100px;
+	color: crimson;
+	*/
+
+
 }
 
 /* CLOCK - END */
