@@ -14,7 +14,6 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['userIntegra']);
     header("location: login.php");
 }
-
 ?>
 
 <!DOCTYPE html>

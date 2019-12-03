@@ -86,7 +86,9 @@ body {
 	flex-direction: row-reverse;
 	justify-content: space-between;
 }
-
+.list-group > li {
+	list-style:none;
+}
 #sidebar-wrapper .sidebar-heading {
 	padding: 0.875rem 1.25rem;
 	font-size: 1.2rem;
@@ -101,6 +103,10 @@ body {
 #container {
 	display: flex;
 	margin-top: 57px;
+}
+
+li {
+	list-style-position: inside;
 }
 
 #content-container {

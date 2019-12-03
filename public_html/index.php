@@ -34,47 +34,33 @@ if (isset($_GET['logout'])) {
     <div id="container">
         <?php include('includes/sidebar.php');?>
         <div id="content-container">
-            <div class="main-header">
-                <div class="row">
-                    <div class="col">
-                        <div class="attendance">
-                            <p>
-                                <span class="badge badge-success">Online</span> Presença </p>
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                    style="width: <?php echo $param;?>">
-                                    <?php echo $param;?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <h2>Suas Disciplinas:</h2>
+        <div class="table-responsive-sm">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Disciplina</th>
+                            <th>Turma</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
 
-            <div class="row">
-                <div class="col">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header"><i class="material-icons">info</i></div>
-                        <div class="card-body">
+                    <tbody>
 
-                            <h5 class="card-title">Sala</h5>
-                            <p class="card-text">1234</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header"><i class="material-icons">info</i></div>
-                        <div class="card-body">
+                        <tr>
+                            <td>DCC064</td>
+                            <td>A</td>
+                            <td><a href="subject.php?disciplina=DCC064&turma=A" class="btn btn-primary">Ver presença</a></td>
+                        </tr>
 
-                            <h5 class="card-title">Disciplina</h5>
-                            <p class="card-text">DCC1234</p>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <tr>
+                            <td>DCC119</td>
+                            <td>X</td>
+                            <td><button class="btn btn-primary">Ver presença</button></td>
+                        </tr>
+                     </tbody>
+                 </table>
+             </div>
             <span id="clock">&nbsp;</span>
         </div>
 

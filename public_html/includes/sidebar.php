@@ -14,8 +14,8 @@ if($_SESSION['userIntegra']['professor'] == false){
                 <i class="material-icons">home</i>Início</a></li>
         <li><a class="list-group-item list-group-item-action bg-light" href="#">
                 <i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a class="list-group-item list-group-item-action bg-light" href="rooms.php">
-                <i class="material-icons">meeting_room</i>Salas</a></li>
+        <!--<li><a class="list-group-item list-group-item-action bg-light" href="rooms.php">
+                <i class="material-icons">meeting_room</i>Salas</a></li>-->
         <li><a class="list-group-item list-group-item-action bg-light" href="userDevices.php">
                 <i class="material-icons">phonelink</i>Seus dispositivos</a></li>
         <li><a class="list-group-item list-group-item-action bg-light text-danger" href="index.php?logout='1'">
