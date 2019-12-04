@@ -2,11 +2,43 @@
 include('includes/config.php');
 $pageTitle = "Justificar presença";
 
-$aluno = $_GET['aluno'];;
-$disciplina =$_GET['disciplina'];;
-$codigo=$_GET['turma'];
-$data=$_GET['data'];;
 
+
+
+if(!empty($_POST['nomeAluno'])){
+
+
+    $aluno = $_POST['nomeAluno'];
+    $codigo=$_POST['codigoDisciplina']; 
+    $data=date('Y-m-d H:i:s.u',$_POST['dataFalta']);
+    $justificativa = $_POST['justificativa'];
+    $presenca = $_POST['presenca'];
+
+    $sql = "INSERT INTO sd.justificativa  (datahorainicio,codturma,aluno,justificativa) VALUES (:dataHoraInicio, :turma , :cpf, :justificativa)";
+    $query = $conn->prepare($sql);
+    $query->bindParam(':cpf', $aluno, PDO::PARAM_INT);
+    $query->bindParam(':dataHoraInicio', $data, PDO::PARAM_STR);
+    $query->bindParam(':turma', $codigo, PDO::PARAM_INT);
+    $query->bindParam(':justificativa', $justificativa, PDO::PARAM_STR);
+    $query->execute();
+    $sql = "UPDATE sd.presenca set presenca = :presenca where (datahorainicio = :dataHoraInicio and codturma =:turma and aluno = :cpf)";
+    $query1 = $conn->prepare($sql);
+    $query1->bindParam(':cpf', $aluno, PDO::PARAM_INT);
+    $query1->bindParam(':dataHoraInicio', $data, PDO::PARAM_STR);
+    $query1->bindParam(':turma', $codigo, PDO::PARAM_INT);
+    $query1->bindParam(':presenca', $presenca, PDO::PARAM_STR);
+    $query1->execute();
+    header('Location: index.php');
+
+}
+
+if(isset($_GET['aluno'])) {
+    $aluno = $_GET['aluno'];
+    $disciplina =$_GET['disciplina'];;
+    $codigo=$_GET['turma'];
+    $data=$_GET['data'];
+    var_dump($data);
+}
 
 ?>
 
@@ -23,28 +55,42 @@ $data=$_GET['data'];;
     <div id="content-container">
         <h2>Justificar alteração de presença</h2>
 
-        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form action="justificarPresenca.php" method="post">
             <div class="form-group">
-                <label for="nomeAluno">Nome do aluno</label>
-                <input disabled type="text" name="nomeAluno" class="form-control" id="nomeAluno" placeholder="Nome" value=<?php echo $aluno;?>>
+                <label for="nomeAluno">CPF do aluno</label>  	
+
+
+                <input readonly type="text"   name="nomeAluno" class="form-control" id="nomeAluno" placeholder="Nome" value=<?php  echo (!empty($aluno) ?  $aluno : "");?>>
             </div>
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="disciplina">Disciplina</label>
-                <input disabled type="text" name="disciplina" class="form-control" id="disciplina" placeholder="Disciplina" value=<?php echo $disciplina;?>>
+                <input readonly type="text" name="disciplina" class="form-control" id="disciplina" placeholder="Disciplina" value=<?php echo (!empty($disciplina) ?  $disciplina : "");?>>
             </div>
             <div class="form-group col-md-2">
                 <label for="codigoDisciplina">Código</label>
-                <input disabled type="text" name="codigoDisciplina" class="form-control" id="codigoDisciplina" placeholder="Código" value=<?php echo $codigo;?>>
+                <input readonly type="text" name="codigoDisciplina" class="form-control" id="codigoDisciplina" placeholder="Código" value=<?php echo (!empty($codigo) ?  $codigo : "");?>>
             </div>
             <div class="form-group col-md-4">
-                <label for="dataFalta">Data</label>
-                <input disabled type="date" name="dataFalta" class="form-control" id="dataFalta" placeholder="Data" value=<?php  $data ;?>>
-            </div>
+                <label for="dataFalt">Data</label>
+                <?php $dt = new DateTime($data);
+                            $dia = $dt->format('d-m-y');            
+                ?>
+                <input disabled type="text"  class="form-control" placeholder="Data" value=<?php  echo (!empty($dia) ?  $dia : ""); ?>>
+                <input type="hidden" name="dataFalta" value = <?php echo strtotime($data); ?> >
             </div>
             <div class="form-group">
+                <label for="presenca">Presença</label>
+                <select class="form-control" name="presenca" >  
+                    <option value ="1">Presente</option>
+                    <option value ="0">Ausente</option>
+                </select>
+            </div>
+            </div>
+            
+            <div class="form-group">
                 <label for="justificativa">Justificativa</label>
-                <textarea class="form-control" name="justificativa" id="justificativa" rows="3" placeholder="Justificativa" "></textarea>
+                <textarea class="form-control" name="justificativa" id="justificativa" rows="3" placeholder="Justificativa" ></textarea>
             </div>
             <button type="submit" name="justificarPresenca" class="btn btn-primary">Salvar</button>
         </form>

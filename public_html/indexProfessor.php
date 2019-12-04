@@ -14,6 +14,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['userIntegra']);
     header("location: login.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -41,19 +42,11 @@ if (isset($_GET['logout'])) {
                     </thead>
 
                     <tbody>
-
                         <tr>
                             <td>DCC064</td>
                             <td>A</td>
                             <td>32</td>
                             <td><a href="subject.php?disciplina=DCC064&turma=A" class="btn btn-primary">Ver presença</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>DCC119</td>
-                            <td>X</td>
-                            <td>40</td>
-                            <td><button class="btn btn-primary">Ver presença</button></td>
                         </tr>
                      </tbody>
                  </table>
