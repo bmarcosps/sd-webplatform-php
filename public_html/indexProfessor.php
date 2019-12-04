@@ -2,7 +2,7 @@
 include('includes/config.php');
 $pageTitle = "Início";
 $param = '50%';
-
+/*
 if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
     header('location:login.php');
@@ -14,7 +14,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['userIntegra']);
     header("location: login.php");
 }
-
+*/
 ?>
 
 <!DOCTYPE html>

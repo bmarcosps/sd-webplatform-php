@@ -3,10 +3,7 @@ include('includes/config.php');
 $pageTitle = "Justificar presença";
 
 
-
-
 if(!empty($_POST['nomeAluno'])){
-
 
     $aluno = $_POST['nomeAluno'];
     $codigo=$_POST['codigoDisciplina']; 
@@ -14,27 +11,40 @@ if(!empty($_POST['nomeAluno'])){
     $justificativa = $_POST['justificativa'];
     $presenca = $_POST['presenca'];
 
+    $dataSoma = date('Y-m-d H:i:s.u',$_POST['dataFalta']+1);
+
+    $sqlPresenca = "SELECT * FROM sd.presenca WHERE ((datahorainicio BETWEEN :data1 AND :data2) and codturma = :turma and aluno = :cpf)";
+    $queryPresenca = $conn->prepare($sqlPresenca);
+    $queryPresenca->bindParam(':cpf', $aluno, PDO::PARAM_INT);
+    $queryPresenca->bindParam(':data1', $data, PDO::PARAM_STR);
+    $queryPresenca->bindParam(':data2', $dataSoma, PDO::PARAM_STR);
+
+    $queryPresenca->bindParam(':turma', $codigo, PDO::PARAM_INT);
+    $queryPresenca->execute();
+    $presencaResult = $queryPresenca->fetch(PDO::FETCH_ASSOC);
+
     $sql = "INSERT INTO sd.justificativa  (datahorainicio,codturma,aluno,justificativa) VALUES (:dataHoraInicio, :turma , :cpf, :justificativa)";
     $query = $conn->prepare($sql);
     $query->bindParam(':cpf', $aluno, PDO::PARAM_INT);
-    $query->bindParam(':dataHoraInicio', $data, PDO::PARAM_STR);
+    $query->bindParam(':dataHoraInicio', $presencaResult['datahorainicio'], PDO::PARAM_STR);
     $query->bindParam(':turma', $codigo, PDO::PARAM_INT);
     $query->bindParam(':justificativa', $justificativa, PDO::PARAM_STR);
     $query->execute();
+
     $sql = "UPDATE sd.presenca set presenca = :presenca where (datahorainicio = :dataHoraInicio and codturma =:turma and aluno = :cpf)";
     $query1 = $conn->prepare($sql);
     $query1->bindParam(':cpf', $aluno, PDO::PARAM_INT);
-    $query1->bindParam(':dataHoraInicio', $data, PDO::PARAM_STR);
+    $query1->bindParam(':dataHoraInicio', $presencaResult['datahorainicio'], PDO::PARAM_STR);
     $query1->bindParam(':turma', $codigo, PDO::PARAM_INT);
     $query1->bindParam(':presenca', $presenca, PDO::PARAM_STR);
     $query1->execute();
-    header('Location: index.php');
+    //header('Location: index.php');
 
 }
 
 if(isset($_GET['aluno'])) {
     $aluno = $_GET['aluno'];
-    $disciplina =$_GET['disciplina'];;
+    $disciplina =$_GET['disciplina'];
     $codigo=$_GET['turma'];
     $data=$_GET['data'];
     var_dump($data);

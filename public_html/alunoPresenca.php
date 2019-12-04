@@ -1,6 +1,7 @@
 <?php
 include('includes/config.php');
 $pageTitle = "Disciplina";
+$disciplina = $_GET['disciplina'];
 /*
 if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
@@ -34,7 +35,11 @@ $query->execute();
 
 $presenca= $query->rowCount();
 $presencaTotal = $query1->rowCount();
-
+if($presencaTotal == 0) {
+    $div = 0;
+} else {
+    $div = (floatval($presenca)/floatval($presencaTotal)) * 100;
+}
 ?>
 
 <!DOCTYPE html>
@@ -48,9 +53,11 @@ $presencaTotal = $query1->rowCount();
 <div id="container">
     <?php include('includes/sidebar.php');?>
     <div id="content-container">
-        <h2><?php echo $pageTitle;?></h2>
-        <p><?php echo $presenca . "/" . $presencaTotal;?></p>
-
+        <h2><?php echo $disciplina;?></h2>
+        <p><?php echo "Presença: " . $presenca . "/" . $presencaTotal;?></p>
+        <div class="progress" style="height: 20px;">
+            <div class="progress-bar" role="progressbar" style="width: <?php echo number_format($div,2,'.','') . "%";?>;"><?php echo $presenca . "/" . $presencaTotal;?></div>
+        </div>
         <div class="table-responsive-sm">
             <table class="table">
                 <thead class="thead-light">

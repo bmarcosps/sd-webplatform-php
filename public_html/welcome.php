@@ -23,10 +23,12 @@ if(isset($_POST['registrarDispositivo'])) {
                 $nome = $_POST['deviceName'];
                 $mac = preg_replace("/[:]/", '', $_POST['deviceMac']);
 
-                $sql = "INSERT INTO sd.usuario (cpf, macBluetooth) VALUES (:cpf, :macBluetooth)";
+                $sql = "INSERT INTO sd.usuario (cpf, macBluetooth, nomedispositivo) VALUES (:cpf, :macBluetooth, :nomeDispositivo)";
                 $query = $conn->prepare($sql);
                 $query->bindParam(':cpf', $_SESSION['userIntegra']['cpf'], PDO::PARAM_STR);
                 $query->bindParam(':macBluetooth', $mac, PDO::PARAM_STR);
+                $query->bindParam(':nomeDispositivo', $nome, PDO::PARAM_STR);
+
                 $query->execute();
 
                 $sql2 = "SELECT * FROM sd.usuario WHERE cpf=:cpf";

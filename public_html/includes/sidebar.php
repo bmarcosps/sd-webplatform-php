@@ -12,7 +12,7 @@ if($_SESSION['userIntegra']['professor'] == false){
     <ul class="list-group list-group-flush">
         <li><a class="list-group-item list-group-item-action bg-light" href=<?php echo $indexPage ?>>
                 <i class="material-icons">home</i>Início</a></li>
-        <li><a class="list-group-item list-group-item-action bg-light" href="#">
+        <li><a class="list-group-item list-group-item-action bg-light" href="http://10.5.16.109:8050/">
                 <i class="material-icons">dashboard</i>Dashboard</a></li>
         <!--<li><a class="list-group-item list-group-item-action bg-light" href="rooms.php">
                 <i class="material-icons">meeting_room</i>Salas</a></li>-->
