@@ -2,6 +2,10 @@
 include('includes/config.php');
 $pageTitle = "Justificar presença";
 
+if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
+{
+    header('location:login.php');
+}
 
 if(!empty($_POST['nomeAluno'])){
 
@@ -47,7 +51,6 @@ if(isset($_GET['aluno'])) {
     $disciplina =$_GET['disciplina'];
     $codigo=$_GET['turma'];
     $data=$_GET['data'];
-    var_dump($data);
 }
 
 ?>

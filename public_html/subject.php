@@ -1,7 +1,7 @@
 <?php
 include('includes/config.php');
 $pageTitle = "Disciplina";
-/*
+
 if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
     header('location:login.php');
@@ -14,7 +14,7 @@ if(!isset($_GET['disciplina']) || !isset($_GET['turma'])) {
     $turma = $_GET['turma'];
     $pageTitle = $disciplina . " " . $turma;
 }
-*/
+
 
 if(!empty($_POST["dataDisciplina"]))
 {
