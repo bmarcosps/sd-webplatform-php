@@ -76,14 +76,5 @@ while ($retries > 0)
                     </button>
                 </div>";
     }
-
-    function refreshConnection(){
-        $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
-
-        while($conn == null) {
-            $conn = new PDO("pgsql:host=".DB_HOST2.";port=".DB_PORT2.";dbname=".DB_NAME2,DB_USER2, DB_PASS2);
-        }
-        return $conn;
-    }
 ?>
 

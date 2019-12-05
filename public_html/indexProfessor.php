@@ -1,10 +1,16 @@
 <?php
 include('includes/config.php');
 $pageTitle = "Início";
-$param = '50%';
-
-if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
+/*
+if(!isset($_SESSION['user']) || !isset($_SESSION['userIntegra']))
 {
+    session_destroy();
+    unset($_SESSION['user']);
+    unset($_SESSION['userIntegra']);
+    header('location:login.php');
+}
+
+if($_SESSION['userIntegra']['professor'] != true) {
     header('location:login.php');
 }
 
@@ -14,7 +20,7 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['userIntegra']);
     header("location: login.php");
 }
-
+*/
 ?>
 
 <!DOCTYPE html>

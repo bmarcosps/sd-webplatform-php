@@ -5,6 +5,9 @@ $pageTitle = "Seus Dispositivos";
 
 if(!isset($_SESSION['user']))
 {
+    session_destroy();
+    unset($_SESSION['user']);
+    unset($_SESSION['userIntegra']);
     header('location:login.php');
 }
 $cpf = $_SESSION['user']['cpf'];

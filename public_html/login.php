@@ -111,7 +111,6 @@ if(isset($_SESSION['user']))
                 <button type="submit" name="login" class="w-100 btn btn-primary">Entrar</button>
             </form>
         </div>
-        <img src="assets\img\logo-ufjf-1.png" alt="Logo UFJF" id="logo-ufjf-login">
 
     </div>
 

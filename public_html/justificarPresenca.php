@@ -1,11 +1,12 @@
 <?php
 include('includes/config.php');
 $pageTitle = "Justificar presença";
-
+/*
 if(!isset($_SESSION['user']) || $_SESSION['userIntegra']['professor'] != true)
 {
     header('location:login.php');
 }
+*/
 
 if(!empty($_POST['nomeAluno'])){
 
@@ -13,7 +14,7 @@ if(!empty($_POST['nomeAluno'])){
     $codigo=$_POST['codigoDisciplina']; 
     $data=date('Y-m-d H:i:s.u',$_POST['dataFalta']);
     $justificativa = $_POST['justificativa'];
-    $presenca = $_POST['presenca'];
+    $presenca = $_POST['presenca'];S
 
     $dataSoma = date('Y-m-d H:i:s.u',$_POST['dataFalta']+1);
 
@@ -42,7 +43,7 @@ if(!empty($_POST['nomeAluno'])){
     $query1->bindParam(':turma', $codigo, PDO::PARAM_INT);
     $query1->bindParam(':presenca', $presenca, PDO::PARAM_STR);
     $query1->execute();
-    //header('Location: index.php');
+    header('Location: index.php');
 
 }
 

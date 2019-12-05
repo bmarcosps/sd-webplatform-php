@@ -1,15 +1,16 @@
 <?php
-try{
-    include('includes/config.php'); 
-} catch(PDOException $e) {
-    exit("Error: " . $e->getMessage());
-}
+include('includes/config.php');
 $pageTitle = "Início";
-$param = '50%';
 
-if(!isset($_SESSION['user'])  || !isset($_SESSION['userIntegra'])|| $_SESSION['userIntegra']['professor'] != false)
+if(!isset($_SESSION['user']) || !isset($_SESSION['userIntegra']))
 {
     session_destroy();
+    unset($_SESSION['user']);
+    unset($_SESSION['userIntegra']);
+    header('location:login.php');
+}
+
+if($_SESSION['userIntegra']['professor'] != false) {
     header('location:login.php');
 }
 
@@ -19,8 +20,6 @@ if (isset($_GET['logout'])) {
     unset($_SESSION['userIntegra']);
     header("location: login.php");
 }
-
-
 ?>
 
 <!DOCTYPE html>
